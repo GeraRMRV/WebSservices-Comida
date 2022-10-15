@@ -24,9 +24,9 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(RestauranteSeeder::class);
         $this->call(PlatilloSeeder::class);
-        // $this->call(RepartidorSeeder::class);
-        // $this->call(ClienteSeeder::class);
-        // $this->call(PedidoSeeder::class);
-        // $this->call(PedidoPlatilloSeeder::class);
+        $this->call(RepartidorSeeder::class);
+        $this->call(ClienteSeeder::class);
+        $this->call(PedidoSeeder::class);
+        $this->call(PedidoPlatilloSeeder::class);
     }
 }

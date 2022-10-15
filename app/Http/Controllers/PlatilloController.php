@@ -90,24 +90,9 @@ class PlatilloController extends Controller
         $platillo = Platillo::where('id', $id)->first();
         $platillo->status = $status;
         $platillo->save();
-        return json_encode(['title' => 'Exito', 'message' => 'Estado de platillo actualizado', 'opcion' => 0]);
+        return json_encode(['resp' => 'success']);
     }
 
-    // public function serviceCambiarFoto(Request $request)
-    // {
-    //     $data = $request->all();
-    //     $barbero = Barbero::where('email', $data['email'])->first();
-
-    //     $imagen = str_replace('data:image/png;base64,', '', $data['foto']);
-    //     $imagen = str_replace(' ', '+', $imagen);
-    //     $imgName = date('YmdHis').'.png';
-    //     \File::put(public_path('img/'.$imgName), base64_decode($imagen));
-    //     $barbero->foto = $imgName;
-    //     $barbero->save();
-    //     return json_encode(['datos' => 'Foto actualizada', 'foto' => $imgName]);
-    // }
-
-    // Función para editar un platillo
     public function update($id, Request $request)
     {
         $request->validate([
@@ -121,9 +106,9 @@ class PlatilloController extends Controller
         $platillo = Platillo::find($id);
         try {
             $platillo->update($data);
-            return json_encode(['title' => 'Exito', 'message' => 'Platillo actualizado', 'opcion' => 0]);
+            return json_encode(['resp' => 'success']);
         } catch (\Exception $e) {
-            return json_encode(['title' => 'Error', 'message' => 'Ocurrio un error al actualizar el platillo', 'opcion' => 3]);
+            return json_encode(['resp' => 'error']);
         }
     }
 }

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PlatilloController;
+use App\Http\Controllers\PedidoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/login',[LoginController::class,'serviceLogin']);
 Route::get('/search/{id_restaurant}/platillo', [PlatilloController::class, 'searchInRestaurant']);
 Route::post('/create/platillo', [PlatilloController::class, 'create']);
+Route::put('/platillo/{id}', [PlatilloController::class, 'update']);
+Route::put('/platillo/{id}/{status}', [PlatilloController::class, 'updateStatus']);
+
+Route::get('/pedidos/{id_restaurante}/{status}', [PedidoController::class, 'pedidos']);
